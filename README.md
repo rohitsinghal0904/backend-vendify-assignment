@@ -344,7 +344,18 @@ npm run test:watch
 
 ### Environment Variables
 
-See `.env.example` for all available configuration options.
+See `.env.example` for all available configuration options and copy it to `.env` before starting the app. Key variables you’ll typically need:
+
+| Variable | Purpose | Example |
+| --- | --- | --- |
+| `PORT` | Port the Express server listens on | `3000` |
+| `NODE_ENV` | Runtime mode toggling logs/config | `development` |
+| `DB_HOST`, `DB_PORT` | MySQL host and port | `localhost`, `3306` |
+| `DB_NAME`, `DB_USER`, `DB_PASSWORD` | Credentials for the Vendify ERP database | `vendify_erp`, `root`, `password` |
+| `JWT_SECRET` | Secret used to sign access tokens | `super-secure-string` |
+| `JWT_EXPIRES_IN` | Access token lifetime | `1h` |
+| `REDIS_HOST`, `REDIS_PORT` | Redis connection info for caching/rate limiting | `localhost`, `6379` |
+| `RATE_LIMIT_MAX` (optional) | Override default API rate limit window cap | `100` |
 
 ### Database Setup
 
