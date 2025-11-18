@@ -17,11 +17,9 @@ class AuthService {
       throw new Error('Invalid credentials');
     }
 
-    // Generate tokens
     const accessToken = this.generateAccessToken(user);
     const refreshToken = this.generateRefreshToken();
 
-    // Store refresh token
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 7); // 7 days
 
@@ -31,7 +29,6 @@ class AuthService {
       expires_at: expiresAt
     });
 
-    // Audit log
     await AuditLog.create({
       company_id: user.company_id,
       user_id: user.id,
@@ -66,7 +63,6 @@ class AuthService {
       throw new Error('User not found or inactive');
     }
 
-    // Generate new access token
     const accessToken = this.generateAccessToken(user);
 
     return { accessToken };

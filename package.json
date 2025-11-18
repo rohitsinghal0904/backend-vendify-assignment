@@ -10,7 +10,8 @@
     "test:watch": "jest --watch",
     "setup": "node scripts/setup.js",
     "setup:seed": "node scripts/setup.js --seed",
-    "create-admin": "node scripts/create-admin.js"
+    "create-admin": "node scripts/create-admin.js",
+    "seed:sequelize": "node scripts/seed-sequelize.js"
   },
   "keywords": [],
   "author": "Rohit Singhal",

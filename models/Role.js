@@ -47,7 +47,6 @@ class Role {
   }
 
   static async delete(id, company_id) {
-    // Check if any users are assigned to this role
     const userCount = await UserModel.count({
       where: { role_id: id, company_id, is_deleted: false }
     });

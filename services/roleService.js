@@ -4,8 +4,6 @@ const AuditLog = require('../models/AuditLog');
 class RoleService {
   static async createRole(roleData, createdBy) {
     const { name, permissions, company_id } = roleData;
-
-    // Check if role with same name exists in company
     const existingRoles = await Role.findByCompany(company_id);
     const duplicate = existingRoles.find(r => r.name.toLowerCase() === name.toLowerCase());
     if (duplicate) {
@@ -20,7 +18,6 @@ class RoleService {
 
     const role = await Role.findById(roleId, company_id);
 
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: createdBy.id,
@@ -66,7 +63,6 @@ class RoleService {
 
     const updatedRole = await Role.findById(id, company_id);
 
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: updatedBy.id,
@@ -93,7 +89,6 @@ class RoleService {
 
     await Role.delete(id, company_id);
 
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: deletedBy.id,

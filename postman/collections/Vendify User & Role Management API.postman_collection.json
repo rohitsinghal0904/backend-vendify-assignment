@@ -1,0 +1,2824 @@
+{
+  "info": {
+    "_postman_id": "6d378a37-0bd9-463f-a529-4625c680b11b",
+    "name": "Vendify User & Role Management API",
+    "description": "Comprehensive Postman collection for the Vendify assignment backend. It covers utility checks, authentication, user CRUD, role CRUD, and audit log queries with helpful defaults and scripts to capture JWT tokens.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43141170",
+    "_collection_link": "https://epiklab-5715.postman.co/workspace/b6940c61-bf91-4a8b-80ac-bad16e61ac66/collection/43141170-6d378a37-0bd9-463f-a529-4625c680b11b?action=share&source=collection_link&creator=43141170"
+  },
+  "item": [
+    {
+      "name": "Utility",
+      "item": [
+        {
+          "name": "Welcome",
+          "id": "7924a58e-7c23-41eb-8664-5e9f6074798c",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e012fd0e-fc26-4ca8-91f9-749151d7e25e",
+              "name": "Welcome",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d-yiVLREYUqNI2K3ojn9IpLBds8M0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 08:49:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Welcome to Vendify Assignment API\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Health Check",
+          "id": "84bb4cf8-9f96-47d2-97e1-cdacc7a757d2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "78705bf1-c534-4713-9b61-1c5f7c0209f8",
+              "name": "Health Check",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/health",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "70"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"46-2GtQk9ovgiSNQObh7cYmSNOKd9U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 08:49:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Server is running\",\n    \"timestamp\": \"2025-11-18\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "c73cd5fb-f1af-4930-86fe-7619c7357143",
+      "description": "Quick smoke tests to ensure the service is reachable before exercising authenticated flows."
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "id": "c792d233-1ffb-4caf-a0b2-edfd049fb179"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "packages": {},
+                "type": "text/javascript",
+                "id": "24ca4720-6d69-4877-9b0e-485054410884"
+              }
+            }
+          ],
+          "id": "f56c0be7-874d-46bf-8c0d-663a42ee60f8",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin@acme.com\",\n    \"password\": \"Admin@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/auth/login",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71102aa2-1d1d-4139-982b-7578fd542992",
+              "name": "Login",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"admin@acme.com\",\n    \"password\": \"Admin@123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/auth/login",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "5;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "5"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "3"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "888"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "699"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2bb-EwHzYhPC0o3nswKWxtAZkkAYtEo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 08:52:13 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDhiOWFmY2EtYzM3Zi0xMWYwLTlmYzktOWRkYzc3YmY1Nzc1IiwiY29tcGFueV9pZCI6ImQ4YWZjZmQ0LWMzN2YtMTFmMC05ZmM5LTlkZGM3N2JmNTc3NSIsInJvbGVfaWQiOiJkOGI1NGExMy1jMzdmLTExZjAtOWZjOS05ZGRjNzdiZjU3NzUiLCJlbWFpbCI6ImFkbWluQGFjbWUuY29tIiwiaWF0IjoxNzYzNDU1OTMzLCJleHAiOjE3NjM0NTk1MzN9.WDOdSDO3xDWIF7sn3dzJfa0NCZjM8gFK5EVee727VzE\",\n        \"refreshToken\": \"7f07665ece60f4ec2fdefe644c94f209dd1977a9d26a3fd54394ab8430d21a497f42344ced49b256\",\n        \"user\": {\n            \"id\": \"d8b9afca-c37f-11f0-9fc9-9ddc77bf5775\",\n            \"email\": \"admin@acme.com\",\n            \"name\": \"Acme Admin\",\n            \"company_id\": \"d8afcfd4-c37f-11f0-9fc9-9ddc77bf5775\",\n            \"role_id\": \"d8b54a13-c37f-11f0-9fc9-9ddc77bf5775\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Refresh succeeded', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "const response = pm.response.json();",
+                  "if (response && response.data) {",
+                  "    if (response.data.accessToken) {",
+                  "        pm.collectionVariables.set('accessToken', response.data.accessToken);",
+                  "    }",
+                  "    if (response.data.refreshToken) {",
+                  "        pm.collectionVariables.set('refreshToken', response.data.refreshToken);",
+                  "    }",
+                  "}"
+                ],
+                "id": "2a78cc9a-3f36-4ca1-984c-8caf2ed74a10"
+              }
+            }
+          ],
+          "id": "f0dd46f4-9405-4f28-9a4d-b7f2c4eafd68",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/auth/refresh",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bf080997-ca0b-4229-afee-2ff3629962ce",
+              "name": "Refresh Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/auth/refresh",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "refresh"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "96"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "840"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "402"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"192-pE66uPKsT196o48h2XeXJsD+o1w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 08:53:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDhiOWFmY2EtYzM3Zi0xMWYwLTlmYzktOWRkYzc3YmY1Nzc1IiwiY29tcGFueV9pZCI6ImQ4YWZjZmQ0LWMzN2YtMTFmMC05ZmM5LTlkZGM3N2JmNTc3NSIsInJvbGVfaWQiOiJkOGI1NGExMy1jMzdmLTExZjAtOWZjOS05ZGRjNzdiZjU3NzUiLCJlbWFpbCI6ImFkbWluQGFjbWUuY29tIiwiaWF0IjoxNzYzNDU1OTgxLCJleHAiOjE3NjM0NTk1ODF9.MmAcj0IMH_zr7rksGphV70K5Cvu8iFWSpfuuVJNU6CI\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "id": "0be2cdc7-25bc-4fdc-a47a-12afd0ca3324",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/auth/logout",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c2844379-d45d-413e-ba5b-cba69b99d4ba",
+              "name": "Logout",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/auth/logout",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "95"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "803"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "51"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"33-9iMwTpFW7jLUPqqnPINCg0Pzyc0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 08:53:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Logged out successfully\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "a7d9346e-3c50-4727-b7d8-1f5ab445e1fa",
+      "description": "Obtain, refresh, and revoke JWTs. The login response is used to hydrate collection variables for downstream requests."
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Current User",
+          "id": "6d8d1fb4-ddb7-4696-ab21-9bdf48e58fcd",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/users/me",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3d3d159f-047c-4134-a7eb-c19ad45b9733",
+              "name": "Get Current User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/users/me",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "98"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "891"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "563"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"233-uodatikxvQJ2JvODtArGL30Hx+s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:29:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n        \"email\": \"admin@acme.com\",\n        \"name\": \"Updated Name\",\n        \"is_deleted\": false,\n        \"is_active\": true,\n        \"created_by\": null,\n        \"created_at\": \"2025-11-18T09:11:14.000Z\",\n        \"updated_at\": \"2025-11-18T10:29:29.000Z\",\n        \"Role\": {\n            \"name\": \"Company Admin\",\n            \"permissions\": {\n                \"can_create_role\": true,\n                \"can_create_user\": true,\n                \"can_delete_role\": true,\n                \"can_delete_user\": true,\n                \"can_update_role\": true,\n                \"can_update_user\": true,\n                \"can_view_audit_logs\": true\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "List Users",
+          "id": "d79f9cb3-bd42-4a22-b92d-8c9241ba7a56",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/users?page=1&limit=10&search=&sortBy=name&sortOrder=ASC",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "search",
+                  "value": ""
+                },
+                {
+                  "key": "sortBy",
+                  "value": "name"
+                },
+                {
+                  "key": "sortOrder",
+                  "value": "ASC"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6571efa8-ab5e-4f45-a5fc-9889a30eafd8",
+              "name": "List Users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/users?page=1&limit=10&search=&sortBy=name&sortOrder=ASC",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": ""
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "name"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "ASC"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "97"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "879"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1205"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4b5-p3L4dHtX54h19P8l8SGtzirS5SY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:29:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"e23d8609-b861-424f-946a-63353b28e7d1\",\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"email\": \"user@acme.com\",\n                \"name\": \"Jane Doe\",\n                \"is_deleted\": false,\n                \"is_active\": true,\n                \"created_by\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"created_at\": \"2025-11-18T10:27:56.000Z\",\n                \"updated_at\": \"2025-11-18T10:27:56.000Z\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                }\n            },\n            {\n                \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"email\": \"admin@acme.com\",\n                \"name\": \"Updated Name\",\n                \"is_deleted\": false,\n                \"is_active\": true,\n                \"created_by\": null,\n                \"created_at\": \"2025-11-18T09:11:14.000Z\",\n                \"updated_at\": \"2025-11-18T10:29:29.000Z\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                }\n            }\n        ],\n        \"pagination\": {\n            \"total\": 2,\n            \"page\": 1,\n            \"limit\": 10,\n            \"totalPages\": 1\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get User By ID",
+          "id": "e28ed49e-794d-4ea4-bee3-616feac75d14",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/users/{{userId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d271753-d45a-4d74-851d-adaec6540807",
+              "name": "Get User By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/users/{{userId}}",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{userId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "96"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "865"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "563"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"233-uodatikxvQJ2JvODtArGL30Hx+s\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:30:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n        \"email\": \"admin@acme.com\",\n        \"name\": \"Updated Name\",\n        \"is_deleted\": false,\n        \"is_active\": true,\n        \"created_by\": null,\n        \"created_at\": \"2025-11-18T09:11:14.000Z\",\n        \"updated_at\": \"2025-11-18T10:29:29.000Z\",\n        \"Role\": {\n            \"name\": \"Company Admin\",\n            \"permissions\": {\n                \"can_create_role\": true,\n                \"can_create_user\": true,\n                \"can_delete_role\": true,\n                \"can_delete_user\": true,\n                \"can_update_role\": true,\n                \"can_update_user\": true,\n                \"can_view_audit_logs\": true\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create User",
+          "id": "28bd1a2f-2608-4bd2-8433-c36767e8f95e",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"user@acme.com\",\n    \"password\": \"Password123\",\n    \"name\": \"Jane Doe\",\n    \"role_id\": {{roleId}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/users",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13daaf05-1773-4a08-a79a-c87190300241",
+              "name": "Create User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"test@acme.com\",\n    \"password\": \"Password123\",\n    \"name\": \"Jane Doe\",\n    \"role_id\": \"{{roleId}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/users",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "94"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "839"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "592"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"250-l7lqiBF+GLbTg+ki8Gj4KFtYzO8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:30:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"ebd20fbf-84be-4f2b-ace0-76e0a07a2d79\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n        \"email\": \"test@acme.com\",\n        \"name\": \"Jane Doe\",\n        \"is_deleted\": false,\n        \"is_active\": true,\n        \"created_by\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n        \"created_at\": \"2025-11-18T10:30:30.000Z\",\n        \"updated_at\": \"2025-11-18T10:30:30.000Z\",\n        \"Role\": {\n            \"name\": \"Company Admin\",\n            \"permissions\": {\n                \"can_create_role\": true,\n                \"can_create_user\": true,\n                \"can_delete_role\": true,\n                \"can_delete_user\": true,\n                \"can_update_role\": true,\n                \"can_update_user\": true,\n                \"can_view_audit_logs\": true\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update User",
+          "id": "11d40b05-daec-4c30-ad26-b0989067b72f",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Name\",\n    \"role_id\": {{roleId}}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/users/{{userId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0f85f95c-4ee0-40c5-916c-56a343838d18",
+              "name": "Update User",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Updated Name\",\n    \"role_id\": \"{{roleId}}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/users/{{userId}}",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{userId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "93"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "826"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "563"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"233-GOKuPnpVV1MmVUcuHA/9f/uBZyM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:30:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n        \"email\": \"admin@acme.com\",\n        \"name\": \"Updated Name\",\n        \"is_deleted\": false,\n        \"is_active\": true,\n        \"created_by\": null,\n        \"created_at\": \"2025-11-18T09:11:14.000Z\",\n        \"updated_at\": \"2025-11-18T10:30:43.000Z\",\n        \"Role\": {\n            \"name\": \"Company Admin\",\n            \"permissions\": {\n                \"can_create_role\": true,\n                \"can_create_user\": true,\n                \"can_delete_role\": true,\n                \"can_delete_user\": true,\n                \"can_update_role\": true,\n                \"can_update_user\": true,\n                \"can_view_audit_logs\": true\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete User",
+          "id": "313be290-b7b9-4931-8c5e-bc5a629226d0",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/users/{{userId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "users",
+                "{{userId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2684f3a2-6ebc-4f1e-bfdd-ad10e43a7bcd",
+              "name": "Delete User",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/users/{{userId}}",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{userId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "92"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "810"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "53"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"35-Lch//JEdeh3rQke/0geafI+77NA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:30:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"User deleted successfully\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "df109e19-f268-4510-88bf-bffc9f51ae3b",
+      "description": "All endpoints require a valid Bearer token. Permissions such as can_create_user, can_update_user, and can_delete_user must be granted by the role."
+    },
+    {
+      "name": "Roles",
+      "item": [
+        {
+          "name": "List Roles",
+          "id": "55e67855-ecbe-48e3-9e17-8db6e69d489b",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/roles",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6530342a-e7d1-417f-9e7a-4e05ce8c669c",
+              "name": "List Roles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/roles",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "88"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "642"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1030"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"406-QzNJYLoYKCId3RjIiLMyW3W9PKs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:33:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"name\": \"Company Admin\",\n            \"permissions\": {\n                \"can_create_role\": true,\n                \"can_create_user\": true,\n                \"can_delete_role\": true,\n                \"can_delete_user\": true,\n                \"can_update_role\": true,\n                \"can_update_user\": true,\n                \"can_view_audit_logs\": true\n            },\n            \"created_at\": \"2025-11-18T09:11:14.000Z\",\n            \"updated_at\": \"2025-11-18T09:11:14.000Z\"\n        },\n        {\n            \"id\": \"45be4497-0f0c-4455-bd51-3999b310a885\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"name\": \"Finance Manager\",\n            \"permissions\": {\n                \"can_view_users\": true,\n                \"can_create_user\": false,\n                \"can_delete_user\": false,\n                \"can_update_user\": false\n            },\n            \"created_at\": \"2025-11-18T09:11:14.000Z\",\n            \"updated_at\": \"2025-11-18T09:11:14.000Z\"\n        },\n        {\n            \"id\": \"eb7a0e0e-d86f-4d04-8795-d05cdc5e8d4d\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"name\": \"Store Manager\",\n            \"permissions\": {\n                \"can_view_users\": true,\n                \"can_create_user\": false,\n                \"can_delete_user\": false,\n                \"can_update_user\": false\n            },\n            \"created_at\": \"2025-11-18T09:11:14.000Z\",\n            \"updated_at\": \"2025-11-18T09:11:14.000Z\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Role By ID",
+          "id": "1ba62c5d-4908-445e-a626-46d6dfa59399",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/roles/{{roleId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "roles",
+                "{{roleId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e5de377-ef20-4539-adce-d41b8aa88ecb",
+              "name": "Get Role By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/roles/{{roleId}}",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "{{roleId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "87"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "608"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "404"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"194-ESGsruYl5Uxc8iA9NzLaHOwAa7w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:34:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"name\": \"Company Admin\",\n        \"permissions\": {\n            \"can_create_role\": true,\n            \"can_create_user\": true,\n            \"can_delete_role\": true,\n            \"can_delete_user\": true,\n            \"can_update_role\": true,\n            \"can_update_user\": true,\n            \"can_view_audit_logs\": true\n        },\n        \"created_at\": \"2025-11-18T09:11:14.000Z\",\n        \"updated_at\": \"2025-11-18T09:11:14.000Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Role",
+          "id": "590df015-c2a3-453a-95da-1d5d14bfea3c",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Sales Manager\",\n    \"permissions\": {\n        \"can_create_user\": false,\n        \"can_update_user\": false,\n        \"can_delete_user\": false,\n        \"can_view_users\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/roles",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "84f4e9a2-6d55-49a2-a666-58d1596b7460",
+              "name": "Create Role",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Sales Manager\",\n    \"permissions\": {\n        \"can_create_user\": false,\n        \"can_update_user\": false,\n        \"can_delete_user\": false,\n        \"can_view_users\": true\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/roles",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "86"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "590"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "333"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"14d-7STkLErmG6XhRrfecG64/+ozdhw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:34:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"name\": \"Sales Manager\",\n        \"permissions\": {\n            \"can_view_users\": true,\n            \"can_create_user\": false,\n            \"can_delete_user\": false,\n            \"can_update_user\": false\n        },\n        \"created_at\": \"2025-11-18T10:34:39.000Z\",\n        \"updated_at\": \"2025-11-18T10:34:39.000Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Role",
+          "id": "db0a0538-ab9f-4c54-827d-2b0f35f8910c",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Senior Sales Manager\",\n    \"permissions\": {\n        \"can_create_user\": true,\n        \"can_update_user\": true,\n        \"can_delete_user\": false,\n        \"can_view_users\": true\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{api_base}}/roles/{{roleId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "roles",
+                "{{roleId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6693cb65-491e-4c8a-945c-fa53df5538e4",
+              "name": "Update Role",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Senior Sales Manager\",\n    \"permissions\": {\n        \"can_create_user\": true,\n        \"can_update_user\": true,\n        \"can_delete_user\": false,\n        \"can_view_users\": true\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{api_base}}/roles/dd379369-4dff-4cb8-9de2-123068962205",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "dd379369-4dff-4cb8-9de2-123068962205"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "83"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "472"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "338"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"152-a+GJ0Axc0Qc/dDJksM1poZFRHFU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:36:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n        \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n        \"name\": \"Senior Sales Manager\",\n        \"permissions\": {\n            \"can_view_users\": true,\n            \"can_create_user\": true,\n            \"can_delete_user\": false,\n            \"can_update_user\": true\n        },\n        \"created_at\": \"2025-11-18T10:34:39.000Z\",\n        \"updated_at\": \"2025-11-18T10:36:37.000Z\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Role",
+          "id": "8ce8e015-c876-41ab-b1b9-9ac638ec45fc",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/roles/{{roleId}}",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "roles",
+                "{{roleId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15fcfc7f-1ac1-445a-b150-d358264bc8c6",
+              "name": "Delete Role",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/roles/dd379369-4dff-4cb8-9de2-123068962205",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "dd379369-4dff-4cb8-9de2-123068962205"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "82"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "445"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "53"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"35-a5Z3V3f3zAtW89iUWzIByoxpWaQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:37:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Role deleted successfully\"\n}"
+            }
+          ]
+        }
+      ],
+      "id": "5caf4be5-5b62-4e16-ae64-0bfa887c387d",
+      "description": "Role endpoints allow RBAC management. Creation, updates, and deletes require the respective permissions (e.g., can_create_role)."
+    },
+    {
+      "name": "Audit Logs",
+      "item": [
+        {
+          "name": "List Audit Logs",
+          "id": "55d87f76-3556-4b5d-82fc-1367fd7a9d30",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{accessToken}}"
+              }
+            ],
+            "url": {
+              "raw": "{{api_base}}/audit-logs?limit=20&page=1",
+              "host": [
+                "{{api_base}}"
+              ],
+              "path": [
+                "audit-logs"
+              ],
+              "query": [
+                {
+                  "key": "user_id",
+                  "value": "{{userId}}",
+                  "disabled": true
+                },
+                {
+                  "key": "action_type",
+                  "value": "CREATE",
+                  "disabled": true
+                },
+                {
+                  "key": "date_from",
+                  "value": "2024-01-01",
+                  "disabled": true
+                },
+                {
+                  "key": "date_to",
+                  "value": "2024-12-31",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "11666ec9-f457-4d88-b4d8-d763cdb38bcb",
+              "name": "List Audit Logs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{accessToken}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{api_base}}/audit-logs?limit=20&page=1",
+                  "host": [
+                    "{{api_base}}"
+                  ],
+                  "path": [
+                    "audit-logs"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_id",
+                      "value": "{{userId}}",
+                      "disabled": true
+                    },
+                    {
+                      "key": "action_type",
+                      "value": "CREATE",
+                      "disabled": true
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "2024-01-01",
+                      "disabled": true
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "2024-12-31",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Security-Policy",
+                  "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Resource-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Origin-Agent-Cluster",
+                  "value": "?1"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "no-referrer"
+                },
+                {
+                  "key": "Strict-Transport-Security",
+                  "value": "max-age=15552000; includeSubDomains"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-DNS-Prefetch-Control",
+                  "value": "off"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "RateLimit-Policy",
+                  "value": "100;w=900"
+                },
+                {
+                  "key": "RateLimit-Limit",
+                  "value": "100"
+                },
+                {
+                  "key": "RateLimit-Remaining",
+                  "value": "79"
+                },
+                {
+                  "key": "RateLimit-Reset",
+                  "value": "414"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "13481"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"34a9-GN3/3HdlMg8KQ9XOzoon4buUZ+w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 18 Nov 2025 10:37:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"data\": [\n        {\n            \"id\": \"87bb1296-fb50-4e4f-9d06-39e8c0ce8a27\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"DELETE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": {\n                \"name\": \"Senior Sales Manager\"\n            },\n            \"new_values\": null,\n            \"created_at\": \"2025-11-18T10:37:04.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"e5598078-9d05-434f-844a-6b0210d2e9a0\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"DELETE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": {},\n            \"new_values\": null,\n            \"created_at\": \"2025-11-18T10:37:04.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"a5a3dd3d-2b97-42f3-8e1b-f6e15c7d8e32\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": {\n                \"name\": \"Senior Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"new_values\": {\n                \"id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n                \"name\": \"Senior Sales Manager\",\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T10:34:39.000Z\",\n                \"updated_at\": \"2025-11-18T10:36:37.000Z\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"created_at\": \"2025-11-18T10:36:38.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"adb12771-7559-47c5-9c15-87aac0ee4544\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": {\n                \"name\": \"Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": false,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": false\n                }\n            },\n            \"new_values\": {\n                \"name\": \"Senior Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"created_at\": \"2025-11-18T10:36:37.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"01e6f009-2dfd-4ce0-aaba-44093015bf99\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n            \"old_values\": {\n                \"name\": \"Senior Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"new_values\": {\n                \"id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"name\": \"Senior Sales Manager\",\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T09:11:14.000Z\",\n                \"updated_at\": \"2025-11-18T10:35:13.000Z\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"created_at\": \"2025-11-18T10:35:13.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"ef3b5422-2cf9-4d14-b353-21a20fc57d02\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n            \"old_values\": {\n                \"name\": \"Company Admin\",\n                \"permissions\": {\n                    \"can_create_role\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_role\": true,\n                    \"can_delete_user\": true,\n                    \"can_update_role\": true,\n                    \"can_update_user\": true,\n                    \"can_view_audit_logs\": true\n                }\n            },\n            \"new_values\": {\n                \"name\": \"Senior Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": true,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": true\n                }\n            },\n            \"created_at\": \"2025-11-18T10:35:13.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"4bf41d7f-831b-46b7-806b-a44f60ef5705\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"name\": \"Sales Manager\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": false,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": false\n                }\n            },\n            \"created_at\": \"2025-11-18T10:34:39.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"80544f40-c205-4b83-a5e9-b80a7f55bc4c\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"ROLE\",\n            \"entity_id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"id\": \"dd379369-4dff-4cb8-9de2-123068962205\",\n                \"name\": \"Sales Manager\",\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T10:34:39.000Z\",\n                \"updated_at\": \"2025-11-18T10:34:39.000Z\",\n                \"permissions\": {\n                    \"can_view_users\": true,\n                    \"can_create_user\": false,\n                    \"can_delete_user\": false,\n                    \"can_update_user\": false\n                }\n            },\n            \"created_at\": \"2025-11-18T10:34:39.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"7dc1a9b6-7740-4a86-ba82-a00b13e4de40\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"LOGIN\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"email\": \"admin@acme.com\"\n            },\n            \"created_at\": \"2025-11-18T10:33:04.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"920bccd4-0c2d-4b8e-85ba-f130d968199f\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"DELETE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"new_values\": {\n                \"is_deleted\": true\n            },\n            \"created_at\": \"2025-11-18T10:30:59.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"bf522976-2523-4810-9676-b48337fbf5d9\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"DELETE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {},\n            \"new_values\": null,\n            \"created_at\": \"2025-11-18T10:30:59.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"a381b4c1-b36c-4b48-abd6-36838064f375\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {\n                \"name\": \"Updated Name\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"new_values\": {\n                \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                },\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"is_active\": true,\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T09:11:14.000Z\",\n                \"created_by\": null,\n                \"is_deleted\": false,\n                \"updated_at\": \"2025-11-18T10:30:43.000Z\"\n            },\n            \"created_at\": \"2025-11-18T10:30:43.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"efc59c11-a934-4b4d-bcfb-e2a0ff7599ef\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {\n                \"name\": \"Updated Name\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"new_values\": {\n                \"name\": \"Updated Name\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"created_at\": \"2025-11-18T10:30:43.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"5013827d-3e7e-4c1f-816c-3d8c18fcb375\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"ebd20fbf-84be-4f2b-ace0-76e0a07a2d79\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"id\": \"ebd20fbf-84be-4f2b-ace0-76e0a07a2d79\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                },\n                \"name\": \"Jane Doe\",\n                \"email\": \"test@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"is_active\": true,\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T10:30:30.000Z\",\n                \"created_by\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"is_deleted\": false,\n                \"updated_at\": \"2025-11-18T10:30:30.000Z\"\n            },\n            \"created_at\": \"2025-11-18T10:30:30.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"ff8e3c65-ead7-4c18-87ef-7d6773c18871\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"ebd20fbf-84be-4f2b-ace0-76e0a07a2d79\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"name\": \"Jane Doe\",\n                \"email\": \"test@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"created_at\": \"2025-11-18T10:30:30.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"d81cb369-3bd4-49fc-b462-6233e6d7dd8a\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {\n                \"name\": \"Acme Admin\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"new_values\": {\n                \"name\": \"Updated Name\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"created_at\": \"2025-11-18T10:29:29.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"d938a30c-6a53-4e1c-b389-dc936a2ed113\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"UPDATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": {\n                \"name\": \"Updated Name\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"new_values\": {\n                \"id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                },\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"is_active\": true,\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T09:11:14.000Z\",\n                \"created_by\": null,\n                \"is_deleted\": false,\n                \"updated_at\": \"2025-11-18T10:29:29.000Z\"\n            },\n            \"created_at\": \"2025-11-18T10:29:29.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"5050be3b-e1fd-4ef5-8094-201d2f7209f0\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"e23d8609-b861-424f-946a-63353b28e7d1\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"name\": \"Jane Doe\",\n                \"email\": \"user@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\"\n            },\n            \"created_at\": \"2025-11-18T10:27:56.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"640a796c-fabe-4b01-b7da-9130cfb16862\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"CREATE\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"e23d8609-b861-424f-946a-63353b28e7d1\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"id\": \"e23d8609-b861-424f-946a-63353b28e7d1\",\n                \"Role\": {\n                    \"name\": \"Company Admin\",\n                    \"permissions\": {\n                        \"can_create_role\": true,\n                        \"can_create_user\": true,\n                        \"can_delete_role\": true,\n                        \"can_delete_user\": true,\n                        \"can_update_role\": true,\n                        \"can_update_user\": true,\n                        \"can_view_audit_logs\": true\n                    }\n                },\n                \"name\": \"Jane Doe\",\n                \"email\": \"user@acme.com\",\n                \"role_id\": \"5d12964f-b973-42c4-84cf-58f16e9f340b\",\n                \"is_active\": true,\n                \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n                \"created_at\": \"2025-11-18T10:27:56.000Z\",\n                \"created_by\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n                \"is_deleted\": false,\n                \"updated_at\": \"2025-11-18T10:27:56.000Z\"\n            },\n            \"created_at\": \"2025-11-18T10:27:56.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        },\n        {\n            \"id\": \"e3105836-abc5-436e-a854-9f3cb4feee69\",\n            \"company_id\": \"ea4fe470-9661-4f04-a580-0c8441ede01a\",\n            \"user_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"action_type\": \"LOGIN\",\n            \"entity_type\": \"USER\",\n            \"entity_id\": \"55a77154-ac4e-4b29-a21f-5004d324ab47\",\n            \"old_values\": null,\n            \"new_values\": {\n                \"email\": \"admin@acme.com\"\n            },\n            \"created_at\": \"2025-11-18T10:18:34.000Z\",\n            \"User\": {\n                \"name\": \"Updated Name\",\n                \"email\": \"admin@acme.com\"\n            },\n            \"user_name\": \"Updated Name\",\n            \"user_email\": \"admin@acme.com\"\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ],
+      "id": "81fcb8ca-e22a-43c5-b939-1f8412af6aa3",
+      "description": "Audit log queries are limited to company admins with can_view_audit_logs permission."
+    }
+  ],
+  "variable": [
+    {
+      "id": "8b3a02fb-f529-476e-b1a2-e5c0f856e948",
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "id": "ec25d314-0429-4f77-931c-45236b317cdc",
+      "key": "api_base",
+      "value": "http://localhost:3000/api"
+    },
+    {
+      "id": "019fcca2-6ed1-4b4d-9162-4017ffd9e9fa",
+      "key": "accessToken",
+      "value": ""
+    },
+    {
+      "id": "c529e18a-628b-4e22-8fe0-0b8a6f420674",
+      "key": "refreshToken",
+      "value": ""
+    },
+    {
+      "id": "255e4b4e-1ca9-4512-aaaf-a9146ef306f0",
+      "key": "userId",
+      "value": "1"
+    },
+    {
+      "id": "a1f87607-8e4e-49eb-ba5f-2ca67eb1067e",
+      "key": "roleId",
+      "value": "1"
+    },
+    {
+      "id": "95505344-fddf-47d5-942e-ea22a44513b9",
+      "key": "companyId",
+      "value": "1"
+    }
+  ]
+}

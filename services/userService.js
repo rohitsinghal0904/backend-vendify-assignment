@@ -5,17 +5,11 @@ const AuditLog = require('../models/AuditLog');
 class UserService {
   static async createUser(userData, createdBy) {
     const { email, password, name, role_id, company_id } = userData;
-
-    // Check if user already exists
     const existingUser = await User.findByEmail(email);
     if (existingUser) {
       throw new Error('User with this email already exists');
     }
-
-    // Hash password
     const password_hash = await bcrypt.hash(password, 10);
-
-    // Create user
     const userId = await User.create({
       company_id,
       role_id,
@@ -24,11 +18,7 @@ class UserService {
       name,
       created_by: createdBy.id
     });
-
-    // Get created user
     const user = await User.findById(userId);
-
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: createdBy.id,
@@ -38,8 +28,6 @@ class UserService {
       old_values: null,
       new_values: { email, name, role_id }
     });
-
-    // Remove sensitive data
     delete user.password_hash;
     return user;
   }
@@ -47,8 +35,6 @@ class UserService {
   static async getUsers(company_id, filters) {
     const users = await User.findByCompany(company_id, filters);
     const total = await User.countByCompany(company_id, filters);
-
-    // Remove password hashes
     users.forEach(user => delete user.password_hash);
 
     return {
@@ -85,8 +71,6 @@ class UserService {
     }
 
     const updatedUser = await User.findById(id);
-
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: updatedBy.id,
@@ -111,8 +95,6 @@ class UserService {
     if (!success) {
       throw new Error('Failed to delete user');
     }
-
-    // Audit log
     await AuditLog.create({
       company_id,
       user_id: deletedBy.id,

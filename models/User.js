@@ -48,8 +48,6 @@ class User {
     const userData = user.toJSON();
     return {
       ...userData,
-      role_name: userData.Role?.name,
-      permissions: userData.Role?.permissions
     };
   }
 
@@ -92,8 +90,6 @@ class User {
       const userData = user.toJSON();
       return {
         ...userData,
-        role_name: userData.Role?.name,
-        permissions: userData.Role?.permissions
       };
     });
   }

@@ -4,7 +4,7 @@ const User = require('../models/User');
 const authenticate = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
-    
+
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return res.status(401).json({ status: false, message: 'No token provided' });
     }
@@ -23,9 +23,9 @@ const authenticate = async (req, res, next) => {
       role_id: user.role_id,
       email: user.email,
       name: user.name,
-      permissions: typeof user.permissions === 'string' 
-        ? JSON.parse(user.permissions) 
-        : user.permissions
+      permissions: typeof user?.Role?.permissions === 'string'
+        ? JSON.parse(user?.Role?.permissions)
+        : user?.Role?.permissions
     };
 
     next();
@@ -42,9 +42,9 @@ const requirePermission = (permission) => {
 
     const permissions = req.user.permissions || {};
     if (!permissions[permission]) {
-      return res.status(403).json({ 
-        status: false, 
-        message: `Permission denied: ${permission} required` 
+      return res.status(403).json({
+        status: false,
+        message: `Permission denied: ${permission} required`
       });
     }
 

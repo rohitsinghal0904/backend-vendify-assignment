@@ -40,8 +40,10 @@ A secure, multi-tenant backend module for an ERP platform that manages users and
 3. **Setup database (automatically creates DB and tables)**
    ```bash
    npm run setup
-   # Or with sample data:
+   # Or with SQL seed data:
    npm run setup:seed
+   # Or seed via Sequelize/UUIDs:
+   npm run seed:sequelize
    ```
 
 4. **Create admin user** (if not using seed)
@@ -373,6 +375,16 @@ See `.env.example` for all available configuration options and copy it to `.env`
    ```bash
    mysql -u root -p vendify_erp < database/seed.sql
    ```
+
+### Sequelize Seed Script
+
+Prefer seeding via JavaScript/Sequelize (auto-generates UUIDs and bcrypt hashes)?
+
+```bash
+npm run seed:sequelize
+```
+
+This script connects through the configured Sequelize models, inserts the same sample companies, roles, and admin users, and ensures every record gets a unique UUID (via `uuidv4`). Adjust emails, names, or permissions directly inside `scripts/seed-sequelize.js` if you need different fixtures.
 
 ### Creating Initial Admin User
 
