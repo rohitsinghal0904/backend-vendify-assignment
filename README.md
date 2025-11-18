@@ -406,5 +406,3 @@ ISC
 ## 👤 Author
 
 Vendify Assignment
-#   v e n d i f y - a s s i g n m e n t  
- 
